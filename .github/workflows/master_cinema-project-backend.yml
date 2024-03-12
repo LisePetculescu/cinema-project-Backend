@@ -9,13 +9,11 @@ on:
       - master
   workflow_dispatch:
 
-#env:
-  #JDBC_DATABASE_URL: ${{secrets.JDBC_DATABASE_URL}}
-  #JDBC_PASSWORD: ${{secrets.JDBC_PASSWORD}}
-  #JDBC_USERNAME: ${{secrets.JDBC_USERNAME}}
-
-
-  #TOKEN_SECRET: ${{secrets.TOKEN_SECRET}}
+env:
+  JDBC_DATABASE_URL: ${{secrets.JDBC_DATABASE_URL}}
+  JDBC_PASSWORD: ${{secrets.JDBC_PASSWORD}}
+  JDBC_USERNAME: ${{secrets.JDBC_USERNAME}}
+  TOKEN_SECRET: ${{secrets.TOKEN_SECRET}}
 
 jobs:
   build:
