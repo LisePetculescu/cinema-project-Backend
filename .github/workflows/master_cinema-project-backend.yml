@@ -6,7 +6,7 @@ name: Build and deploy JAR app to Azure Web App - cinema-project-backend
 on:
   push:
     branches:
-      - master
+      - deployment
   workflow_dispatch:
 
 env:

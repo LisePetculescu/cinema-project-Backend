@@ -1,4 +1,4 @@
-package dat3.rename_me.api;
+package dat3.cinema.api;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
