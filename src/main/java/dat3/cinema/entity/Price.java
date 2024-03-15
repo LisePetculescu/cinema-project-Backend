@@ -12,7 +12,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @Entity
-public class Prices {
+public class Price {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -24,7 +24,7 @@ public class Prices {
     private double feeLongDuration;
     private int discountGroup;
 
-    public Prices(double ticketCheap, double ticketMedium, double ticketExpensive, double feeExpedition, double fee3D, double feeLongDuration, int discountGroup) {
+    public Price(double ticketCheap, double ticketMedium, double ticketExpensive, double feeExpedition, double fee3D, double feeLongDuration, int discountGroup) {
         this.ticketCheap = ticketCheap;
         this.ticketMedium = ticketMedium;
         this.ticketExpensive = ticketExpensive;
