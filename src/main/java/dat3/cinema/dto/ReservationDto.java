@@ -1,9 +1,7 @@
 package dat3.cinema.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import dat3.cinema.entity.Customer;
 import dat3.cinema.entity.Reservation;
-import dat3.cinema.entity.Show;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -17,19 +15,19 @@ import java.time.LocalDateTime;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ReservationDto {
     private int id;
-    private Show show;
-    private Customer customer;
-    private int totalPrice;
-    private LocalDateTime timeStamp;
+    private int show_id;
+    private int customer_id;
+    private int total_price;
+    private LocalDateTime time_stamp;
     private String ticket;
     private int ticket_amount;
 
     public ReservationDto(Reservation r){
         this.id = r.getId();
-        this.show = r.getShow();
-        this.customer = r.getCustomer();
-        this.totalPrice = r.getTotalPrice();
-        this.timeStamp = r.getTimeStamp();
+        this.show_id = r.getShow().getId();
+        this.customer_id = r.getCustomer().getId();
+        this.total_price = r.getTotal_price();
+        this.time_stamp = r.getTime_stamp();
         this.ticket = r.getTicket();
         this.ticket_amount = r.getTicket_amount();
     }
