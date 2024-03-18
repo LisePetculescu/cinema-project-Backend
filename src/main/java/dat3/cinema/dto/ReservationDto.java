@@ -22,7 +22,7 @@ public class ReservationDto {
     private int totalPrice;
     private LocalDateTime timeStamp;
     private String ticket;
-    private int ticketAmount;
+    private int ticket_amount;
 
     public ReservationDto(Reservation r){
         this.id = r.getId();
@@ -30,5 +30,7 @@ public class ReservationDto {
         this.customer = r.getCustomer();
         this.totalPrice = r.getTotalPrice();
         this.timeStamp = r.getTimeStamp();
+        this.ticket = r.getTicket();
+        this.ticket_amount = r.getTicket_amount();
     }
 }

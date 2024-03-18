@@ -26,5 +26,7 @@ public class ReservationService {
         original.setCustomer(r.getCustomer());
         original.setTotalPrice(r.getTotalPrice());
         original.setTimeStamp(r.getTimeStamp());
+        original.setTicket(r.getTicket());
+        original.setTicket_amount(r.getTicket_amount());
     }
 }

@@ -23,12 +23,14 @@ public class Reservation {
     @CreationTimestamp
     private LocalDateTime timeStamp;
     private String ticket;
-    private int ticketAmount;
+    private int ticket_amount;
 
-    public Reservation(Show show, Customer customer, int totalPrice, LocalDateTime timeStamp) {
+    public Reservation(Show show, Customer customer, int totalPrice, LocalDateTime timeStamp, String ticket, int ticket_amount) {
         this.show = show;
         this.customer = customer;
         this.totalPrice = totalPrice;
         this.timeStamp = timeStamp;
+        this.ticket = ticket;
+        this.ticket_amount = ticket_amount;
     }
 }
