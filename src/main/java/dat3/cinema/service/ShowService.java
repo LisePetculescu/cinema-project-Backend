@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ShowService {
@@ -24,6 +25,7 @@ public class ShowService {
     }
 
     public ResponseEntity<Show> getOneShow( int id) {
+
         return ResponseEntity.of(showRepository.findById(id));
     }
 
@@ -34,9 +36,15 @@ public class ShowService {
 
     public Show updateShow(Show request, int id) {
         Show showToEdit = showRepository.findById(id).orElseThrow(()
-                -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Show not found"));
+                -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Show not found, can't update"));
         return showRepository.save(showToEdit);
     }
 
+    public ResponseEntity<Show> deleteOneShow(int id) {
+        Optional<Show> showToDelete = Optional.ofNullable(showRepository.findById(id).orElseThrow(()
+                -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Show not found, can't delete")));
+        showRepository.deleteById(id);
+        return ResponseEntity.of(showToDelete);
+    }
 
 }

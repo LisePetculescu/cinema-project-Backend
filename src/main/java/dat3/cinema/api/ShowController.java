@@ -40,5 +40,10 @@ public class ShowController {
         return showService.updateShow(request, id);
     }
 
+    @DeleteMapping(path = "/{id}")
+    public ResponseEntity<Show> deleteOneShow(@PathVariable int id) {
+        return showService.deleteOneShow(id);
+    }
+
 }
 
