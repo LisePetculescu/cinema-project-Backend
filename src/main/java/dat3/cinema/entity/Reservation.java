@@ -22,6 +22,8 @@ public class Reservation {
     private int totalPrice;
     @CreationTimestamp
     private LocalDateTime timeStamp;
+    private String ticket;
+    private int ticketAmount;
 
     public Reservation(Show show, Customer customer, int totalPrice, LocalDateTime timeStamp) {
         this.show = show;

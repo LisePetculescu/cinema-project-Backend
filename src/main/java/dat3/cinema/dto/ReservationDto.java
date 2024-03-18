@@ -21,6 +21,8 @@ public class ReservationDto {
     private Customer customer;
     private int totalPrice;
     private LocalDateTime timeStamp;
+    private String ticket;
+    private int ticketAmount;
 
     public ReservationDto(Reservation r){
         this.id = r.getId();
