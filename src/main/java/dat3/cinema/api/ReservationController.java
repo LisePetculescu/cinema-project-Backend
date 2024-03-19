@@ -1,11 +1,11 @@
 package dat3.cinema.api;
 
 import dat3.cinema.dto.ReservationDto;
+import dat3.cinema.entity.Reservation;
 import dat3.cinema.service.ReservationService;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/reservations")
@@ -22,4 +22,10 @@ public class ReservationController {
     public ReservationDto createReservation(@RequestBody ReservationDto request){
         return reservationService.createReservation(request);
     }
+
+    @PutMapping(path = "/{id}")
+    public ReservationDto updateReservation(@RequestBody ReservationDto request, @PathVariable int id){
+        return reservationService.editReservation(request, id);
+    }
+
 }
