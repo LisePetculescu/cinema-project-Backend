@@ -35,7 +35,7 @@ public class ReservationService {
 
     public ReservationDto getReservationById(int id){
         Reservation reservation = reservationRepository.findById(id).orElseThrow(
-                () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Reservation not found in database");
+                () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Reservation not found in database"));
         return new ReservationDto(reservation);
     }
 
