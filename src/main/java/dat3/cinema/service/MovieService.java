@@ -6,14 +6,13 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
-
 import java.util.List;
 import java.util.Optional;
 
 @Service
 public class MovieService {
 
-    private MovieRepository movieRepository;
+    private final MovieRepository movieRepository;
 
     public MovieService(MovieRepository movieRepository) {
         this.movieRepository = movieRepository;
@@ -43,14 +42,21 @@ public class MovieService {
         movieToEdit.setTitle(request.getTitle());
         movieToEdit.setGenre(request.getGenre());
         movieToEdit.setDuration(request.getDuration());
+        movieToEdit.setActors(request.getActors());
+        movieToEdit.setDescription(request.getDescription());
+        movieToEdit.set3D(request.is3D());
+        movieToEdit.setActive(request.isActive());
         return movieRepository.save(movieToEdit);
     }
 
     // Update the movie object with the given request object
     private void updateMovie(Movie movie, Movie request) {
-        movie.setTitle(request.getTitle());
         movie.setGenre(request.getGenre());
         movie.setDuration(request.getDuration());
+        movie.setActors(request.getActors());
+        movie.setDescription(request.getDescription());
+        movie.set3D(request.is3D());
+        movie.setActive(request.isActive());
     }
 
     // Delete a movie by id and return the deleted movie object or throw a 404 error if the movie is not found
