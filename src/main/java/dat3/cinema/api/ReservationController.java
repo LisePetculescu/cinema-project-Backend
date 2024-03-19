@@ -17,6 +17,11 @@ public class ReservationController {
     public ReservationController(ReservationService reservationService){
         this.reservationService = reservationService;
     }
+    
+    @GetMapping
+    public List<ReservationDto> getAllReservations(){
+        return reservationService.getAllReservations();
+    }
 
     @PostMapping
     public ReservationDto createReservation(@RequestBody ReservationDto request){
