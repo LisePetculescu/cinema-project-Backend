@@ -13,7 +13,7 @@ public class ReservationController {
 
     ReservationService reservationService;
 
-    public ReservationController(ReservationService reservationService, ReservationRepository reservationRepository){
+    public ReservationController(ReservationService reservationService){
         this.reservationService = reservationService;
     }
 
