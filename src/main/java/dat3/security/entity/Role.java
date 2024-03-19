@@ -24,11 +24,12 @@ public class Role {
       this.roleName = roleName;
    }
 
-   @ManyToMany(mappedBy = "roles",fetch = FetchType.EAGER)
-   Set<UserWithRoles> users;
+//   @ManyToMany(mappedBy = "roles",fetch = FetchType.EAGER)
+//   Set<UserWithRoles> users;
+//
+//   public void addUser(UserWithRoles user) {
+//      if(users == null) users = new HashSet<>();
+//      users.add(user);
+//   }
 
-   public void addUser(UserWithRoles user) {
-      if(users == null) users = new HashSet<>();
-      users.add(user);
-   }
 }
