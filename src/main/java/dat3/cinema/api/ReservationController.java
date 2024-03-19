@@ -2,6 +2,7 @@ package dat3.cinema.api;
 import dat3.cinema.dto.ReservationDto;
 import dat3.cinema.repository.ReservationRepository;
 import dat3.cinema.service.ReservationService;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
@@ -21,8 +22,8 @@ public class ReservationController {
         return reservationService.getAllReservations();
     }
 
-    @GetMapping(path = "/id")
-    public ReservationDto getReservationById(int id){
+    @GetMapping(path = "/{id}")
+    public ReservationDto getReservationById(@PathVariable int id){
         return reservationService.getReservationById(id);
     }
 
@@ -36,4 +37,8 @@ public class ReservationController {
         return reservationService.editReservation(request, id);
     }
 
+    @DeleteMapping(path = "/{id}")
+    public ResponseEntity<Void> deleteReservation(@PathVariable int id){
+        return reservationService.deleteReservation(id);
+    }
 }

@@ -8,7 +8,6 @@ import dat3.cinema.repository.CustomerRepository;
 import dat3.cinema.repository.ReservationRepository;
 import dat3.cinema.repository.ShowRepository;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
