@@ -51,6 +51,7 @@ public class MovieService {
 
     // Update the movie object with the given request object
     private void updateMovie(Movie movie, Movie request) {
+        movie.setTitle(request.getTitle());
         movie.setGenre(request.getGenre());
         movie.setDuration(request.getDuration());
         movie.setActors(request.getActors());
@@ -66,9 +67,4 @@ public class MovieService {
         movieRepository.deleteById(id);
         return ResponseEntity.of(movieToDelete);
     }
-
-
-
-
-
 }
