@@ -1,8 +1,13 @@
 package dat3.cinema.api;
 
+import dat3.cinema.entity.Show;
 import dat3.cinema.service.ShowService;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.nio.file.Path;
+import java.util.List;
 
 @RestController
 @RequestMapping("/shows")
@@ -14,5 +19,31 @@ public class ShowController {
         this.showService = showService;
     }
 
+    @GetMapping
+    public List<Show> getAllShows() {
+        return showService.getAllShows();
+    }
+
+    @GetMapping(path = "/{id}")
+    public ResponseEntity<Show> getOneShow(@PathVariable int id) {
+        return showService.getOneShow(id);
+    }
+
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    public Show addShow(@RequestBody Show request) {
+        return showService.createShow(request);
+    }
+
+    @PutMapping(path = "/{id}")
+    public Show updateShow(@RequestBody Show request, @PathVariable int id) {
+        return showService.updateShow(request, id);
+    }
+
+    @DeleteMapping(path = "/{id}")
+    public ResponseEntity<Show> deleteOneShow(@PathVariable int id) {
+        return showService.deleteOneShow(id);
+    }
 
 }
+

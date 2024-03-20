@@ -6,7 +6,7 @@ name: Build and deploy JAR app to Azure Web App - cinema-project-backend
 on:
   push:
     branches:
-      - deployment
+      - master
   workflow_dispatch:
 
 env:
@@ -35,7 +35,6 @@ jobs:
         with:
           name: java-app
           path: '${{ github.workspace }}/target/*.jar'
-          retention-days: 1
 
   deploy:
     runs-on: ubuntu-latest
@@ -45,19 +44,19 @@ jobs:
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
     permissions:
       id-token: write #This is required for requesting the JWT
-  
+
     steps:
       - name: Download artifact from build job
         uses: actions/download-artifact@v3
         with:
           name: java-app
-      
+
       - name: Login to Azure
         uses: azure/login@v1
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_C476B27FF08C4C42A5CAD39A9C36845C }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_49EA781752AF4E4C8367B7BABF95492C }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_75A6AA3E5B4B4F2587200FE4BE23A8EA }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_C3DB798C2B474A72ADC4A46B327A7EDC }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_18C8DD4239CF4CB197602CFFCF85B69A }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_E0F73453F0994440B369A55E45612576 }}
 
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
