@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CustomerService {
@@ -52,6 +53,14 @@ public class CustomerService {
         customer.setLastName(request.getLastName());
         customer.setPhoneNumber(request.getPhoneNumber());
         customer.setEmail(request.getEmail());
+    }
+
+    // Delete a customer by id and return the deleted customer object or throw a 404 error if the customer is not found
+    public ResponseEntity<Customer> deleteOneCustomer(int id) {
+        Optional<Customer> customerToDelete = Optional.ofNullable(customerRepository.findById(id).orElseThrow(()
+                -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Customer not found, can't delete")));
+        customerRepository.deleteById(id);
+        return ResponseEntity.of(customerToDelete);
     }
 
 

@@ -2,11 +2,10 @@ package dat3.cinema.api;
 
 import dat3.cinema.entity.Customer;
 import dat3.cinema.service.CustomerService;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 
 @RestController
@@ -31,9 +30,22 @@ public class CustomerController {
         return customerService.getOneCustomer(id);
     }
 
+    // Create a new customer path
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    public Customer addCustomer(@RequestBody Customer request) {
+        return customerService.createCustomer(request);
+    }
 
+    // Update a customer path
+    @PutMapping(path = "/{id}")
+    public Customer updateCustomer(@RequestBody Customer request, @PathVariable int id) {
+        return customerService.updateCustomer(request, id);
+    }
 
-
-
-
+    // Delete a customer path
+    @DeleteMapping(path = "/{id}")
+    public ResponseEntity<Customer> deleteOneCustomer(@PathVariable int id) {
+        return customerService.deleteOneCustomer(id);
+    }
 }
