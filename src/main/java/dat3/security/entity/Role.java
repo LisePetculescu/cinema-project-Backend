@@ -31,4 +31,5 @@ public class Role {
       if(users == null) users = new HashSet<>();
       users.add(user);
    }
+
 }

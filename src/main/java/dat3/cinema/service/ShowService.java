@@ -59,6 +59,7 @@ public class ShowService {
         return ResponseEntity.of(showToDelete);
     }
 
+    // update the show object with the given request object
     private void updateShow(Show show, Show request) {
         show.setMovie(request.getMovie());
         show.setTheatre(request.getTheatre());
