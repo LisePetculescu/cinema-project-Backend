@@ -49,7 +49,7 @@ public class MovieService {
         return movieRepository.save(movieToEdit);
     }
 
-    // Update the movie object with the given request object
+    // Update the movie object with the request object
     private void updateMovie(Movie movie, Movie request) {
         movie.setTitle(request.getTitle());
         movie.setGenre(request.getGenre());
