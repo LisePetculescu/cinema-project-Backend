@@ -1,6 +1,5 @@
 package dat3.cinema.api;
 import dat3.cinema.dto.ReservationDto;
-import dat3.cinema.repository.ReservationRepository;
 import dat3.cinema.service.ReservationService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
