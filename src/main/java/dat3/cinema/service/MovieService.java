@@ -35,7 +35,7 @@ public class MovieService {
         return movieRepository.save(movie);
     }
 
-    // Update a movie by id and return the updated movie object or throw a 404 error if the movie is not found
+    // Update movie by id and return the updated movie object or throw a 404 error if the movie is not found
     public Movie updateMovie(Movie request, int id) {
         Movie movieToEdit = movieRepository.findById(id).orElseThrow(()
                 -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Movie not found, can't update"));
