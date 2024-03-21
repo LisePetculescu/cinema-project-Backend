@@ -44,7 +44,7 @@ public class MovieService {
         movieToEdit.setDuration(request.getDuration());
         movieToEdit.setActors(request.getActors());
         movieToEdit.setDescription(request.getDescription());
-        movieToEdit.set3D(request.is3D());
+        movieToEdit.setThreeD(request.isThreeD());
         movieToEdit.setActive(request.isActive());
         return movieRepository.save(movieToEdit);
     }
@@ -56,7 +56,7 @@ public class MovieService {
         movie.setDuration(request.getDuration());
         movie.setActors(request.getActors());
         movie.setDescription(request.getDescription());
-        movie.set3D(request.is3D());
+        movie.setThreeD(request.isThreeD());
         movie.setActive(request.isActive());
     }
 
