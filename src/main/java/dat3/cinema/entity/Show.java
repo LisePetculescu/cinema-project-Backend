@@ -6,7 +6,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.util.Date;
 
 
 @Getter
@@ -22,16 +24,15 @@ public class Show {
     private Theatre theatre;
     @ManyToOne
     private Movie movie;
-    private LocalDateTime date;
-    private LocalDateTime startTime;
+    private LocalDate date;
+    private LocalTime startTime;
 
 
-    public Show(Theatre theatre, Movie movie, LocalDateTime date, LocalDateTime startTime) {
+    public Show(Theatre theatre, Movie movie, LocalDate date, LocalTime startTime) {
         this.theatre = theatre;
         this.movie = movie;
         this.date = date;
         this.startTime = startTime;
     }
-
 
 }
