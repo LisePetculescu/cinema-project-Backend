@@ -35,7 +35,7 @@ public class MovieService {
         return movieRepository.save(movie);
     }
 
-    // Update a movie by id and return the updated movie object or throw a 404 error if the movie is not found
+    // Update movie by id and return the updated movie object or throw a 404 error if the movie is not found
     public Movie updateMovie(Movie request, int id) {
         Movie movieToEdit = movieRepository.findById(id).orElseThrow(()
                 -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Movie not found, can't update"));
@@ -44,19 +44,19 @@ public class MovieService {
         movieToEdit.setDuration(request.getDuration());
         movieToEdit.setActors(request.getActors());
         movieToEdit.setDescription(request.getDescription());
-        movieToEdit.set3D(request.is3D());
+        movieToEdit.setThreeD(request.isThreeD());
         movieToEdit.setActive(request.isActive());
         return movieRepository.save(movieToEdit);
     }
 
-    // Update the movie object with the given request object
+    // Update the movie object with the request object
     private void updateMovie(Movie movie, Movie request) {
         movie.setTitle(request.getTitle());
         movie.setGenre(request.getGenre());
         movie.setDuration(request.getDuration());
         movie.setActors(request.getActors());
         movie.setDescription(request.getDescription());
-        movie.set3D(request.is3D());
+        movie.setThreeD(request.isThreeD());
         movie.setActive(request.isActive());
     }
 

@@ -1,11 +1,11 @@
 package dat3.cinema.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.DecimalMax;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
-import java.sql.Timestamp;
+import org.hibernate.annotations.CreationTimestamp;
 import java.time.LocalDateTime;
 
 @Getter
@@ -20,13 +20,18 @@ public class Reservation {
     private Show show;
     @ManyToOne
     private Customer customer;
-    private int totalPrice;
-    private LocalDateTime timeStamp;
+    private int total_price;
+    @CreationTimestamp
+    private LocalDateTime time_stamp;
+    private String ticket;
+    private int ticket_amount;
 
-    public Reservation(Show show, Customer customer, int totalPrice, LocalDateTime timeStamp) {
+    public Reservation(Show show, Customer customer, int total_price, LocalDateTime time_stamp, String ticket, int ticket_amount) {
         this.show = show;
         this.customer = customer;
-        this.totalPrice = totalPrice;
-        this.timeStamp = timeStamp;
+        this.total_price = total_price;
+        this.time_stamp = time_stamp;
+        this.ticket = ticket;
+        this.ticket_amount = ticket_amount;
     }
 }
