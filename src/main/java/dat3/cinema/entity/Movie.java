@@ -1,5 +1,6 @@
 package dat3.cinema.entity;
 
+// Import
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -21,16 +22,16 @@ public class Movie {
     private String actors;
     private int duration;
     private String genre;
-    private boolean is3D;
+    private boolean threeD;
     private boolean isActive;
 
-    public Movie(String title, String description, String actors, int duration, String genre, boolean is3D, boolean isActive) {
+    public Movie(String title, String description, String actors, int duration, String genre, boolean threeD, boolean isActive) {
         this.title = title;
         this.description = description;
         this.actors = actors;
         this.duration = duration;
         this.genre = genre;
-        this.is3D = is3D;
+        this.threeD = threeD;
         this.isActive = isActive;
     }
 }
