@@ -48,6 +48,7 @@ public class ShowService {
         showToEdit.setMovie(request.getMovie());
         showToEdit.setTheatre(request.getTheatre());
         showToEdit.setStartTime(request.getStartTime());
+        showToEdit.setDate(request.getDate());
         return showRepository.save(showToEdit);
     }
 
