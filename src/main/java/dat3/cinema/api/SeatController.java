@@ -4,12 +4,11 @@ import dat3.cinema.entity.Seat;
 import dat3.cinema.service.SeatService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Repository
+@RestController
 @RequestMapping("/seats")
 public class SeatController {
 
@@ -27,7 +26,7 @@ public class SeatController {
 
     // Get one seat path
     @GetMapping("/{id}")
-    public ResponseEntity<Seat> getOneSeat(int id) {
+    public ResponseEntity<Seat> getOneSeat(@PathVariable int id) {
         return seatService.getOneSeat(id);
     }
 
@@ -49,21 +48,4 @@ public class SeatController {
     public ResponseEntity<Seat> deleteOneSeat(@PathVariable int id) {
         return seatService.deleteOneSeat(id);
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
