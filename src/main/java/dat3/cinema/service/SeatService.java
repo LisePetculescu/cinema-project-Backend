@@ -40,7 +40,7 @@ public class SeatService {
         Seat seatToEdit = seatRepository.findById(id).orElseThrow(()
                 -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Seat not found, can't update"));
         seatToEdit.setTheatre(request.getTheatre());
-        seatToEdit.setRowNumber(request.getRowNumber());
+        seatToEdit.setLineNumber(request.getLineNumber());
         seatToEdit.setSeatNumber(request.getSeatNumber());
         return seatRepository.save(seatToEdit);
     }
@@ -48,7 +48,7 @@ public class SeatService {
     // Update the seat object with the requested object
     private void updateSeat(Seat seat, Seat request) {
         seat.setTheatre(request.getTheatre());
-        seat.setRowNumber(request.getRowNumber());
+        seat.setLineNumber(request.getLineNumber());
         seat.setSeatNumber(request.getSeatNumber());
     }
 

@@ -15,12 +15,12 @@ public class Seat {
     private int id;
     @ManyToOne
     private Theatre theatre;
-    private int rowNumber;
+    private int lineNumber;
     private int seatNumber;
 
-    public Seat(Theatre theatre, int rowNumber, int seatNumber) {
+    public Seat(Theatre theatre, int lineNumber, int seatNumber) {
         this.theatre = theatre;
-        this.rowNumber = rowNumber;
+        this.lineNumber = lineNumber;
         this.seatNumber = seatNumber;
     }
 }
