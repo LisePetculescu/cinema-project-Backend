@@ -19,4 +19,18 @@ public class TicketService {
     public List<Ticket> getAllTickets() {
         return ticketRepository.findAll();
     }
+
+    public Ticket addTicket(Ticket request){
+        Ticket newTicket = new Ticket();
+        updateTicket(newTicket, request);
+        return ticketRepository.save(newTicket);
+    }
+
+    public void updateTicket(Ticket original, Ticket request){
+        original.setId(request.getId());
+        original.setReservation(request.getReservation());
+        original.setSeat(request.getSeat());
+        original.setTicketType(request.getTicketType());
+        original.setTicketPrice(request.getTicketPrice());
+    }
 }
