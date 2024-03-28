@@ -1,5 +1,6 @@
 package dat3.cinema.api;
 
+import dat3.cinema.entity.Seat;
 import dat3.cinema.entity.Theatre;
 import dat3.cinema.service.TheatreService;
 import org.springframework.http.ResponseEntity;
@@ -27,5 +28,11 @@ public class TheatreController {
     @GetMapping("/{id}")
     public ResponseEntity<Theatre> getOneTheatre(@PathVariable int id) {
         return theatreService.getOneTheatre(id);
+    }
+
+    //Get all seats from a theatre
+    @GetMapping("/{id}/seats")
+    public List<Seat> getAllSeatsOfTheatre(@PathVariable int id){
+        return theatreService.getAllSeatsOfTheatre(id);
     }
 }
