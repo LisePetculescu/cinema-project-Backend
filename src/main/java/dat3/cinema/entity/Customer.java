@@ -16,15 +16,15 @@ public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String firstName;
-    private String lastName;
+    private String first_name;
+    private String last_name;
     private String email;
-    private String phoneNumber;
+    private String phone_number;
 
-    public Customer(String firstName, String lastName, String email, String phoneNumber) {
-        this.firstName = firstName;
-        this.lastName = lastName;
+    public Customer(String first_name, String last_name, String email, String phone_number) {
+        this.first_name = first_name;
+        this.last_name = last_name;
         this.email = email;
-        this.phoneNumber = phoneNumber;
+        this.phone_number = phone_number;
     }
 }

@@ -40,18 +40,18 @@ public class CustomerService {
     public Customer updateCustomer(Customer request, int id) {
         Customer customerToEdit = customerRepository.findById(id).orElseThrow(()
                 -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Customer not found, can't update"));
-        customerToEdit.setFirstName(request.getFirstName());
-        customerToEdit.setLastName(request.getLastName());
-        customerToEdit.setPhoneNumber(request.getPhoneNumber());
+        customerToEdit.setFirst_name(request.getFirst_name());
+        customerToEdit.setLast_name(request.getLast_name());
+        customerToEdit.setPhone_number(request.getPhone_number());
         customerToEdit.setEmail(request.getEmail());
         return customerRepository.save(customerToEdit);
     }
 
     // Update the customer object with the given request object
     private void updateCustomer(Customer customer, Customer request) {
-        customer.setFirstName(request.getFirstName());
-        customer.setLastName(request.getLastName());
-        customer.setPhoneNumber(request.getPhoneNumber());
+        customer.setFirst_name(request.getFirst_name());
+        customer.setLast_name(request.getLast_name());
+        customer.setPhone_number(request.getPhone_number());
         customer.setEmail(request.getEmail());
     }
 
